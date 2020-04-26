@@ -4,6 +4,11 @@ body {
 
 }
 
+h1 {
+    float: left;
+
+}
+
 .grid {
   margin: 0 auto;
   width: 160vw;

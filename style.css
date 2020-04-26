@@ -14,10 +14,10 @@ body {
   display: flex;
 }
 .box {
-  background: tomato;
+  background: salmon;
   margin: 5px;
   color: white;
-  font-weight: bold;
+  font-weight: light;
   flex: 1 0 auto;
   position: relative;
 }

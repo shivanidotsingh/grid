@@ -49,12 +49,19 @@ h1 {
   justify-content: center;
 }
 
-#bottom {
-    position: absolute;
+.bottom {
+  position: absolute;
   background: white;
+  margin: 5px;
   color: black;
   justify-content: left;
   align-items: flex-end;  
       display: flex;
 
+}
+.bottom:after {
+  content: "";
+  float:left;
+  display: block;
+  padding-top: 100%;
 }

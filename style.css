@@ -53,6 +53,9 @@ h1 {
 #bottom { 
   color: black;
   background-color: white;
+  margin: 5px;
+  flex: auto;
+  position: relative;
   position:absolute;                  
   bottom:0;                          
   right:0;       

@@ -55,9 +55,7 @@ h1 {
   background-color: white;
   margin: 5px;
   flex: auto;
-  position: relative;
   position:absolute;                  
   bottom:0;                          
   right:0;       
-  height:50%;
             }

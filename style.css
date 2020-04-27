@@ -50,12 +50,3 @@ h1 {
   justify-content: center;
 }
 
-#bottom { 
-  color: black;
-  background-color: white;
-  margin: 5px;
-  flex: auto;
-  position:absolute;                  
-  bottom: 0;                          
-  right: 0;       
-            }

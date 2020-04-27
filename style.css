@@ -48,25 +48,3 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-
-
-/*related to days*/
-
-.bottom {
-  background: white;
-  margin: 5px;
-  color: black;
-  font-weight: light;
-  flex: auto;
-  position: relative;
-  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
-}
-
-.bottom:after {
-  content: "";
-  float:left;
-  display: block;
-  padding-top: 100%;
-}
-

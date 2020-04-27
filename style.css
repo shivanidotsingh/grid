@@ -11,10 +11,10 @@ h1 {
 
 .grid {
   margin: 0 auto;
-  width: 80vw;
-  max-width: 60vh;
-  height: 80vw;
-  max-height: 60vh;
+  width: 160vw;
+  max-width: 120vh;
+  height: 160vw;
+  max-height: 120vh;
   font-size: 1rem;
 }
 .row {

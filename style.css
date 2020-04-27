@@ -51,6 +51,8 @@ h1 {
 }
 
 #bottom { 
+  color: black;
+  background-color: white;
                 position:absolute;                  
                 bottom:0;                          
                 right:0;                          

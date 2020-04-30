@@ -75,14 +75,12 @@ h1 {
 }*/
 
 
-/* Position the front and back side */
+/* Position and Style the front and back side */
 .flip-card-front, .flip-card-back {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-}
-
-.flip-card-front{
   
+    
   margin: 5px;
   flex: 1 0 auto;
   
@@ -101,21 +99,7 @@ h1 {
 
 /* Style the back side */
 .flip-card-back {
- 
-  margin: 5px;
-  flex: 1 0 auto;
   
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  display: flex;
-  
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
   transform: rotateY(180deg);
   transform-style: preserve-3d;
 

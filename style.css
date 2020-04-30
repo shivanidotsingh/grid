@@ -75,5 +75,10 @@ h1 {
 
 /* Style the back side */
 .flip-card-back {
+  margin: 5px;
+  font-weight: thin;
+  flex: 1 0 auto;
+  position: relative;
+
   transform: rotateY(180deg);
 }

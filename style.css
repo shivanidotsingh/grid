@@ -91,7 +91,7 @@ h1 {
   justify-content: center;
   text-align: center;
 
-  
-  perspective: 1000px;
   transform: rotateY(180deg);
+  transform-style: preserve-3d;
+
 }

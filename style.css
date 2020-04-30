@@ -51,7 +51,7 @@ h1 {
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.box:hover .inner {
+.box:hover {
   transform: rotateY(180deg);
 }
 
@@ -73,13 +73,20 @@ h1 {
   backface-visibility: hidden;
 }
 
+.flip-card-front{
+    align-items: center;
+    justify-content: center;
+}
+
 /* Style the back side */
 .flip-card-back {
   margin: 5px;
   color: white;
   font-weight: thin;
   flex: 1 0 auto;
-  position: relative;
+  
+  align-items: center;
+  justify-content: center;
   perspective: 1000px;
   transform: rotateY(180deg);
 }

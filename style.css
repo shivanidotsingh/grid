@@ -23,6 +23,11 @@ h1 {
   color: white;
   font-weight: thin;
   flex: 1 0 auto;
+  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
   position: relative;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 

@@ -87,11 +87,9 @@ h1 {
 
 /* Style the back side */
 .flip-card-back {
-  margin: 5px;
-  color: white;
-  font-weight: thin;
   flex: 1 0 auto;
-  
+  background: transparent;
+
   align-items: center;
   justify-content: center;
   text-align: center;

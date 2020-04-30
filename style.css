@@ -102,5 +102,42 @@ h1 {
   
   transform: rotateY(180deg);
   transform-style: preserve-3d;
+}
+
+/*Unflippable cards*/
+
+.noflip {
+  margin: 5px;
+  color: white;
+  font-weight: thin;
+  flex: 1 0 auto;
+  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  position: relative;
+
+}
+
+.noflip:after {
+  content: "";
+  float:left;
+  display: block;
+  padding-top: 100%;
+}
+
+.noflip .nfinner {
+ 
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
 }

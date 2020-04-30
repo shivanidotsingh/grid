@@ -46,12 +46,12 @@ h1 {
   align-items: center;
   justify-content: center;
 
-  transition: transform 0.8s;
+  transition: transform 1s;
   transform-style: preserve-3d;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.box:hover {
+.box:hover  .inner {
   transform: rotateY(180deg);
 }
 

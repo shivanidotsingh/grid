@@ -1,147 +1,123 @@
+/* Basic Reset & Body Styling */
 body {
-  margin: 20px;
-  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Inter', sans-serif; /* Using Inter font */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333;
+    line-height: 1.6;
 }
 
-a:link {
-  text-decoration: none;
+/* Sort Icon Styling */
+.sort-icon {
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 20px; /* 20px from the top */
+    right: 20px; /* 20px from the right */
+    font-size: 28px; /* Size of the icon */
+    color: #2c3e50; /* Dark blue-grey color */
+    cursor: pointer; /* Indicates it's clickable */
+    z-index: 1000; /* Ensures it stays on top of other content */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    padding: 10px;
+    border-radius: 50%; /* Circular shape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-h1 {
-  align: left;
+.sort-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    color: #3498db; /* Change color on hover */
+    background-color: rgba(255, 255, 255, 1);
 }
 
-.grid {
-  margin: 0 auto;
-  width: 160vw;
-  max-width: 120vh;
-  height: 160vw;
-  max-height: 120vh;
-  font-size: 120%;
-}
-.row {
-  display: flex;
-}
-
-.box {
-  margin: 5px;
-  color: white;
-  font-weight: thin;
-  flex: 1 0 auto;
-  
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  
-  position: relative;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-
+/* Gallery Container - CSS Grid for 3 Columns */
+.gallery-container {
+    display: grid;
+    /* Responsive grid: auto-fit creates as many columns as fit,
+       minmax(300px, 1fr) ensures columns are at least 300px wide
+       and grow to fill available space equally. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; /* Space between grid items */
+    padding: 1.5rem;
+    max-width: 1300px; /* Max width for the entire gallery */
+    margin: 0 auto; /* Center the gallery on the page */
 }
 
-.box:after {
-  content: "";
-  float:left;
-  display: block;
-  padding-top: 100%;
+/* Individual Gallery Item Styling */
+.gallery-item {
+    background-color: white;
+    border-radius: 12px; /* Rounded corners for the items */
+    overflow: hidden; /* Ensures image corners are also rounded within the item */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    display: flex; /* Use flexbox to center image if it doesn't fill the item */
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
 }
 
-.box .inner {
- 
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  display: flex;
-  
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  transition: transform 1s;
-  transform-style: preserve-3d;
+.gallery-item:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.box:hover  .inner {
-  transform: rotateY(180deg);
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Fixed height for all images to create a consistent grid */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    display: block; /* Removes extra space below image */
 }
 
-
-
-/* This container is needed to position the front and back side
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-
-}*/
-
-
-/* Position and Style the front and back side */
-.flip-card-front, .flip-card-back {
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-  
-    
-  margin: 5px;
-  flex: 1 0 auto;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  display: flex;
-  
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust min-width for tablets */
+        gap: 1.2rem;
+        padding: 1.2rem;
+    }
+    .gallery-item img {
+        height: 220px; /* Slightly reduce image height */
+    }
+    .sort-icon {
+        font-size: 24px; /* Smaller icon on tablets */
+        top: 15px;
+        right: 15px;
+        padding: 8px;
+    }
 }
 
-/* Style the back side */
-.flip-card-back {
-  
-  transform: rotateY(180deg);
-  transform-style: preserve-3d;
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Further adjust for smaller tablets */
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .gallery-item img {
+        height: 200px; /* Further reduce image height */
+    }
+    .sort-icon {
+        font-size: 22px; /* Even smaller icon on mobile */
+        top: 10px;
+        right: 10px;
+        padding: 7px;
+    }
 }
 
-/*Unflippable cards*/
-
-.noflip {
-  margin: 5px;
-  color: white;
-  font-weight: thin;
-  flex: 1 0 auto;
-  
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  
-  position: relative;
-
-}
-
-.noflip:after {
-  content: "";
-  float:left;
-  display: block;
-  padding-top: 100%;
-}
-
-.noflip .nfinner {
- 
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  display: flex;
-  
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
+@media (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        padding: 0.5rem;
+    }
+    .gallery-item {
+        margin: 0.5rem auto; /* Center single column items */
+        width: 95%; /* Adjust width for single column */
+    }
+    .gallery-item img {
+        height: 180px; /* Further reduce image height for mobile */
+    }
+    .sort-icon {
+        font-size: 20px; /* Smallest icon on tiny screens */
+        top: 8px;
+        right: 8px;
+        padding: 6px;
+    }
 }

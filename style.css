@@ -19,8 +19,6 @@ body {
     z-index: 1000; /* Ensures it stays on top of other content */
     background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
     padding: 10px;
-    border-radius: 50%; /* Circular shape */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: transform 0.2s ease-in-out, color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
@@ -30,13 +28,11 @@ body {
     background-color: rgba(255, 255, 255, 1);
 }
 
-/* Gallery Container - CSS Grid for 3 Columns */
+/* Gallery Container - CSS Grid for 3 Columns (Strictly 3, always) */
 .gallery-container {
     display: grid;
-    /* Responsive grid: auto-fit creates as many columns as fit,
-       minmax(300px, 1fr) ensures columns are at least 300px wide
-       and grow to fill available space equally. */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* FORCED 3-COLUMN LAYOUT on all screens */
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal columns, always */
     gap: 1.5rem; /* Space between grid items */
     padding: 1.5rem;
     max-width: 1300px; /* Max width for the entire gallery */
@@ -46,9 +42,7 @@ body {
 /* Individual Gallery Item Styling */
 .gallery-item {
     background-color: white;
-    border-radius: 12px; /* Rounded corners for the items */
     overflow: hidden; /* Ensures image corners are also rounded within the item */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
     display: flex; /* Use flexbox to center image if it doesn't fill the item */
     justify-content: center; /* Center image horizontally */
@@ -57,7 +51,6 @@ body {
 
 .gallery-item:hover {
     transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 .gallery-item img {
@@ -67,10 +60,9 @@ body {
     display: block; /* Removes extra space below image */
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments (only for padding/gap/icon size, NOT column count) */
 @media (max-width: 1024px) {
     .gallery-container {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust min-width for tablets */
         gap: 1.2rem;
         padding: 1.2rem;
     }
@@ -87,7 +79,6 @@ body {
 
 @media (max-width: 768px) {
     .gallery-container {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Further adjust for smaller tablets */
         gap: 1rem;
         padding: 1rem;
     }
@@ -104,12 +95,10 @@ body {
 
 @media (max-width: 480px) {
     .gallery-container {
-        grid-template-columns: 1fr; /* Single column on very small screens */
         padding: 0.5rem;
     }
     .gallery-item {
-        margin: 0.5rem auto; /* Center single column items */
-        width: 95%; /* Adjust width for single column */
+        /* No change to width: 95% or margin: 0.5rem auto; as it's still 3 columns */
     }
     .gallery-item img {
         height: 180px; /* Further reduce image height for mobile */

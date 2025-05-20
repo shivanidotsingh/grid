@@ -1,373 +1,499 @@
-<link rel="stylesheet" href="./style.css">
-<link href="https://unpkg.com/pattern.css" rel="stylesheet">
-
-<h1 style="font-size:250%;"> <a href="https://www.instagram.com/homemade_iotd/">Ingredient of the Day</a> Calendar </h1><br>
-
-
-<h1 style="font-size:250%;">May</h1>
-
-<div class="grid">     
-      <div class="row">
-        <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Mon</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Tue</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Wed</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Thu</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Fri</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Sat</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Sun</div></div>
-    </div>
-      
-      <div class="row">
-        <div class="noflip"><div class="nfinner" style="background-color: white">0</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white">0</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white">0</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white">0</div></div>
-            
-            <div class="box">
-         <div class="inner">
-               <div class="flip-card-front" style="background-color: #b9a38e;"> 1 </div>
-               <div class="flip-card-back" style="background-color: #b9a38e;">  <h1 style="font-size:250%;"> ☕ </h1> </div> 
-
-   </div>
-</div>     
-       
-<div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: AntiqueWhite;"> 2 </div> 
-         <div class="flip-card-back" style="background-color: AntiqueWhite;"> <h1 style="font-size:250%;">🥚</h1> </div>
-               
-   </div>
-</div>      
-              
-        <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">3</div></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="sort-icon" class="sort-icon">
+        <i class="fas fa-sort-down"></i>
     </div>
 
-<div class="row">
-      <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: Tomato;"> 4 </div> 
-         <div class="flip-card-back" style="background-color: Tomato;"> <h1 style="font-size:250%;"> 🍅</h1> </div>
-               
-             </div>
-      </div> 
-                  
+    <main class="gallery-container" id="gallery-container">
+        <!--
+            Images are listed here in descending order by default (138.jpg first).
+            The 'data-order' attribute stores the original image number for sorting.
+            The JavaScript at the bottom of the page handles the sorting logic.
 
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: SeaGreen;"> 5 </div> 
-         <div class="flip-card-back" style="background-color: SeaGreen;"> <h1 style="font-size:250%;"> 🥦 </h1> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: #FFB914;"> 6 </div> 
-         <div class="flip-card-back" style="background-color: #FFB914;"> <h1 style="font-size:250%;"> 🥕 </h1> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: MediumPurple;"> 7 </div> 
-         <div class="flip-card-back" style="background-color: MediumPurple;"> <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/onion_1f9c5.png" width="50%"></img> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: #b9a38e;"> 8 </div> 
-         <div class="flip-card-back" style="background-color: #b9a38e;"> <h1 style="font-size:250%;"> 🍄 </h1> </div>
-               
-             </div>
-      </div> 
-       <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: AntiqueWhite;"> 9 </div> 
-         <div class="flip-card-back" style="background-color: AntiqueWhite;">
-  <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/garlic_1f9c4.png" width="50%"></img> </div>
-               
-             </div>
-      </div> 
-        
-      <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">10</div></div>
-    </div>
-    
-    <div class="row">
-          <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: Tomato;"> 11 </div> 
-         <div class="flip-card-back" style="background-color: Tomato;"> <h1 style="font-size:250%;"> 🍉</h1> </div>
-               
-             </div>
-      </div> 
-                  
+            HOW TO ADD NEW PHOTOS (e.g., 139.jpg, 140.jpg, 141.jpg):
+            1. Upload the new image files (e.g., 139.jpg, 140.jpg, 141.jpg) into your 'images' folder on GitHub.
+            2. Copy one of the 'gallery-item' blocks below and paste it at the TOP of this list
+               (just inside the <main> tag) to maintain the descending order for new additions.
+            3. Update the 'src' attribute to your new image filename (e.g., src="images/139.jpg").
+            4. Update the 'data-order' attribute to the new image number (e.g., data-order="139").
+            5. Update the 'alt' attribute with a descriptive text (e.g., alt="Photo 139").
+               Even though no text is visible, 'alt' text is crucial for accessibility and search engines.
+            6. Commit your changes on GitHub.
+        -->
 
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: SeaGreen;"> 12 </div> 
-         <div class="flip-card-back" style="background-color: SeaGreen;"> <h1 style="font-size:250%;"> 🥒 </h1> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: #FFB914;"> 13 </div> 
-         <div class="flip-card-back" style="background-color: #FFB914;"> <h1 style="font-size:250%;"> 🍋 </h1> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: MediumPurple;"> 14 </div> 
-         <div class="flip-card-back" style="background-color: MediumPurple;"> <h1 style="font-size:250%;"> 🍆 </h1> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-back" style="background-color: #b9a38e;"> <h1 style="font-size:250%;"> 🥔 </h1> </div>
-         <div class="flip-card-front" style="background-color: #b9a38e;"> 15 </div> 
-               
-             </div>
-      </div> 
+        <div class="gallery-item" data-order="138">
+            <img src="images/138.jpg" alt="Photo 138">
+        </div>
+        <div class="gallery-item" data-order="137">
+            <img src="images/137.jpg" alt="Photo 137">
+        </div>
+        <div class="gallery-item" data-order="136">
+            <img src="images/136.jpg" alt="Photo 136">
+        </div>
+        <div class="gallery-item" data-order="135">
+            <img src="images/135.jpg" alt="Photo 135">
+        </div>
+        <div class="gallery-item" data-order="134">
+            <img src="images/134.jpg" alt="Photo 134">
+        </div>
+        <div class="gallery-item" data-order="133">
+            <img src="images/133.jpg" alt="Photo 133">
+        </div>
+        <div class="gallery-item" data-order="132">
+            <img src="images/132.jpg" alt="Photo 132">
+        </div>
+        <div class="gallery-item" data-order="131">
+            <img src="images/131.jpg" alt="Photo 131">
+        </div>
+        <div class="gallery-item" data-order="130">
+            <img src="images/130.jpg" alt="Photo 130">
+        </div>
+        <div class="gallery-item" data-order="129">
+            <img src="images/129.jpg" alt="Photo 129">
+        </div>
+        <div class="gallery-item" data-order="128">
+            <img src="images/128.jpg" alt="Photo 128">
+        </div>
+        <div class="gallery-item" data-order="127">
+            <img src="images/127.jpg" alt="Photo 127">
+        </div>
+        <div class="gallery-item" data-order="126">
+            <img src="images/126.jpg" alt="Photo 126">
+        </div>
+        <div class="gallery-item" data-order="125">
+            <img src="images/125.jpg" alt="Photo 125">
+        </div>
+        <div class="gallery-item" data-order="124">
+            <img src="images/124.jpg" alt="Photo 124">
+        </div>
+        <div class="gallery-item" data-order="123">
+            <img src="images/123.jpg" alt="Photo 123">
+        </div>
+        <div class="gallery-item" data-order="122">
+            <img src="images/122.jpg" alt="Photo 122">
+        </div>
+        <div class="gallery-item" data-order="121">
+            <img src="images/121.jpg" alt="Photo 121">
+        </div>
+        <div class="gallery-item" data-order="120">
+            <img src="images/120.jpg" alt="Photo 120">
+        </div>
+        <div class="gallery-item" data-order="119">
+            <img src="images/119.jpg" alt="Photo 119">
+        </div>
+        <div class="gallery-item" data-order="118">
+            <img src="images/118.jpg" alt="Photo 118">
+        </div>
+        <div class="gallery-item" data-order="117">
+            <img src="images/117.jpg" alt="Photo 117">
+        </div>
+        <div class="gallery-item" data-order="116">
+            <img src="images/116.jpg" alt="Photo 116">
+        </div>
+        <div class="gallery-item" data-order="115">
+            <img src="images/115.jpg" alt="Photo 115">
+        </div>
+        <div class="gallery-item" data-order="114">
+            <img src="images/114.jpg" alt="Photo 114">
+        </div>
+        <div class="gallery-item" data-order="113">
+            <img src="images/113.jpg" alt="Photo 113">
+        </div>
+        <div class="gallery-item" data-order="112">
+            <img src="images/112.jpg" alt="Photo 112">
+        </div>
+        <div class="gallery-item" data-order="111">
+            <img src="images/111.jpg" alt="Photo 111">
+        </div>
+        <div class="gallery-item" data-order="110">
+            <img src="images/110.jpg" alt="Photo 110">
+        </div>
+        <div class="gallery-item" data-order="109">
+            <img src="images/109.jpg" alt="Photo 109">
+        </div>
+        <div class="gallery-item" data-order="108">
+            <img src="images/108.jpg" alt="Photo 108">
+        </div>
+        <div class="gallery-item" data-order="107">
+            <img src="images/107.jpg" alt="Photo 107">
+        </div>
+        <div class="gallery-item" data-order="106">
+            <img src="images/106.jpg" alt="Photo 106">
+        </div>
+        <div class="gallery-item" data-order="105">
+            <img src="images/105.jpg" alt="Photo 105">
+        </div>
+        <div class="gallery-item" data-order="104">
+            <img src="images/104.jpg" alt="Photo 104">
+        </div>
+        <div class="gallery-item" data-order="103">
+            <img src="images/103.jpg" alt="Photo 103">
+        </div>
+        <div class="gallery-item" data-order="102">
+            <img src="images/102.jpg" alt="Photo 102">
+        </div>
+        <div class="gallery-item" data-order="101">
+            <img src="images/101.jpg" alt="Photo 101">
+        </div>
+        <div class="gallery-item" data-order="100">
+            <img src="images/100.jpg" alt="Photo 100">
+        </div>
+        <div class="gallery-item" data-order="99">
+            <img src="images/99.jpg" alt="Photo 99">
+        </div>
+        <div class="gallery-item" data-order="98">
+            <img src="images/98.jpg" alt="Photo 98">
+        </div>
+        <div class="gallery-item" data-order="97">
+            <img src="images/97.jpg" alt="Photo 97">
+        </div>
+        <div class="gallery-item" data-order="96">
+            <img src="images/96.jpg" alt="Photo 96">
+        </div>
+        <div class="gallery-item" data-order="95">
+            <img src="images/95.jpg" alt="Photo 95">
+        </div>
+        <div class="gallery-item" data-order="94">
+            <img src="images/94.jpg" alt="Photo 94">
+        </div>
+        <div class="gallery-item" data-order="93">
+            <img src="images/93.jpg" alt="Photo 93">
+        </div>
+        <div class="gallery-item" data-order="92">
+            <img src="images/92.jpg" alt="Photo 92">
+        </div>
+        <div class="gallery-item" data-order="91">
+            <img src="images/91.jpg" alt="Photo 91">
+        </div>
+        <div class="gallery-item" data-order="90">
+            <img src="images/90.jpg" alt="Photo 90">
+        </div>
+        <div class="gallery-item" data-order="89">
+            <img src="images/89.jpg" alt="Photo 89">
+        </div>
+        <div class="gallery-item" data-order="88">
+            <img src="images/88.jpg" alt="Photo 88">
+        </div>
+        <div class="gallery-item" data-order="87">
+            <img src="images/87.jpg" alt="Photo 87">
+        </div>
+        <div class="gallery-item" data-order="86">
+            <img src="images/86.jpg" alt="Photo 86">
+        </div>
+        <div class="gallery-item" data-order="85">
+            <img src="images/85.jpg" alt="Photo 85">
+        </div>
+        <div class="gallery-item" data-order="84">
+            <img src="images/84.jpg" alt="Photo 84">
+        </div>
+        <div class="gallery-item" data-order="83">
+            <img src="images/83.jpg" alt="Photo 83">
+        </div>
+        <div class="gallery-item" data-order="82">
+            <img src="images/82.jpg" alt="Photo 82">
+        </div>
+        <div class="gallery-item" data-order="81">
+            <img src="images/81.jpg" alt="Photo 81">
+        </div>
+        <div class="gallery-item" data-order="80">
+            <img src="images/80.jpg" alt="Photo 80">
+        </div>
+        <div class="gallery-item" data-order="79">
+            <img src="images/79.jpg" alt="Photo 79">
+        </div>
+        <div class="gallery-item" data-order="78">
+            <img src="images/78.jpg" alt="Photo 78">
+        </div>
+        <div class="gallery-item" data-order="77">
+            <img src="images/77.jpg" alt="Photo 77">
+        </div>
+        <div class="gallery-item" data-order="76">
+            <img src="images/76.jpg" alt="Photo 76">
+        </div>
+        <div class="gallery-item" data-order="75">
+            <img src="images/75.jpg" alt="Photo 75">
+        </div>
+        <div class="gallery-item" data-order="74">
+            <img src="images/74.jpg" alt="Photo 74">
+        </div>
+        <div class="gallery-item" data-order="73">
+            <img src="images/73.jpg" alt="Photo 73">
+        </div>
+        <div class="gallery-item" data-order="72">
+            <img src="images/72.jpg" alt="Photo 72">
+        </div>
+        <div class="gallery-item" data-order="71">
+            <img src="images/71.jpg" alt="Photo 71">
+        </div>
+        <div class="gallery-item" data-order="70">
+            <img src="images/70.jpg" alt="Photo 70">
+        </div>
+        <div class="gallery-item" data-order="69">
+            <img src="images/69.jpg" alt="Photo 69">
+        </div>
+        <div class="gallery-item" data-order="68">
+            <img src="images/68.jpg" alt="Photo 68">
+        </div>
+        <div class="gallery-item" data-order="67">
+            <img src="images/67.jpg" alt="Photo 67">
+        </div>
+        <div class="gallery-item" data-order="66">
+            <img src="images/66.jpg" alt="Photo 66">
+        </div>
+        <div class="gallery-item" data-order="65">
+            <img src="images/65.jpg" alt="Photo 65">
+        </div>
+        <div class="gallery-item" data-order="64">
+            <img src="images/64.jpg" alt="Photo 64">
+        </div>
+        <div class="gallery-item" data-order="63">
+            <img src="images/63.jpg" alt="Photo 63">
+        </div>
+        <div class="gallery-item" data-order="62">
+            <img src="images/62.jpg" alt="Photo 62">
+        </div>
+        <div class="gallery-item" data-order="61">
+            <img src="images/61.jpg" alt="Photo 61">
+        </div>
+        <div class="gallery-item" data-order="60">
+            <img src="images/60.jpg" alt="Photo 60">
+        </div>
+        <div class="gallery-item" data-order="59">
+            <img src="images/59.jpg" alt="Photo 59">
+        </div>
+        <div class="gallery-item" data-order="58">
+            <img src="images/58.jpg" alt="Photo 58">
+        </div>
+        <div class="gallery-item" data-order="57">
+            <img src="images/57.jpg" alt="Photo 57">
+        </div>
+        <div class="gallery-item" data-order="56">
+            <img src="images/56.jpg" alt="Photo 56">
+        </div>
+        <div class="gallery-item" data-order="55">
+            <img src="images/55.jpg" alt="Photo 55">
+        </div>
+        <div class="gallery-item" data-order="54">
+            <img src="images/54.jpg" alt="Photo 54">
+        </div>
+        <div class="gallery-item" data-order="53">
+            <img src="images/53.jpg" alt="Photo 53">
+        </div>
+        <div class="gallery-item" data-order="52">
+            <img src="images/52.jpg" alt="Photo 52">
+        </div>
+        <div class="gallery-item" data-order="51">
+            <img src="images/51.jpg" alt="Photo 51">
+        </div>
+        <div class="gallery-item" data-order="50">
+            <img src="images/50.jpg" alt="Photo 50">
+        </div>
+        <div class="gallery-item" data-order="49">
+            <img src="images/49.jpg" alt="Photo 49">
+        </div>
+        <div class="gallery-item" data-order="48">
+            <img src="images/48.jpg" alt="Photo 48">
+        </div>
+        <div class="gallery-item" data-order="47">
+            <img src="images/47.jpg" alt="Photo 47">
+        </div>
+        <div class="gallery-item" data-order="46">
+            <img src="images/46.jpg" alt="Photo 46">
+        </div>
+        <div class="gallery-item" data-order="45">
+            <img src="images/45.jpg" alt="Photo 45">
+        </div>
+        <div class="gallery-item" data-order="44">
+            <img src="images/44.jpg" alt="Photo 44">
+        </div>
+        <div class="gallery-item" data-order="43">
+            <img src="images/43.jpg" alt="Photo 43">
+        </div>
+        <div class="gallery-item" data-order="42">
+            <img src="images/42.jpg" alt="Photo 42">
+        </div>
+        <div class="gallery-item" data-order="41">
+            <img src="images/41.jpg" alt="Photo 41">
+        </div>
+        <div class="gallery-item" data-order="40">
+            <img src="images/40.jpg" alt="Photo 40">
+        </div>
+        <div class="gallery-item" data-order="39">
+            <img src="images/39.jpg" alt="Photo 39">
+        </div>
+        <div class="gallery-item" data-order="38">
+            <img src="images/38.jpg" alt="Photo 38">
+        </div>
+        <div class="gallery-item" data-order="37">
+            <img src="images/37.jpg" alt="Photo 37">
+        </div>
+        <div class="gallery-item" data-order="36">
+            <img src="images/36.jpg" alt="Photo 36">
+        </div>
+        <div class="gallery-item" data-order="35">
+            <img src="images/35.jpg" alt="Photo 35">
+        </div>
+        <div class="gallery-item" data-order="34">
+            <img src="images/34.jpg" alt="Photo 34">
+        </div>
+        <div class="gallery-item" data-order="33">
+            <img src="images/33.jpg" alt="Photo 33">
+        </div>
+        <div class="gallery-item" data-order="32">
+            <img src="images/32.jpg" alt="Photo 32">
+        </div>
+        <div class="gallery-item" data-order="31">
+            <img src="images/31.jpg" alt="Photo 31">
+        </div>
+        <div class="gallery-item" data-order="30">
+            <img src="images/30.jpg" alt="Photo 30">
+        </div>
+        <div class="gallery-item" data-order="29">
+            <img src="images/29.jpg" alt="Photo 29">
+        </div>
+        <div class="gallery-item" data-order="28">
+            <img src="images/28.jpg" alt="Photo 28">
+        </div>
+        <div class="gallery-item" data-order="27">
+            <img src="images/27.jpg" alt="Photo 27">
+        </div>
+        <div class="gallery-item" data-order="26">
+            <img src="images/26.jpg" alt="Photo 26">
+        </div>
+        <div class="gallery-item" data-order="25">
+            <img src="images/25.jpg" alt="Photo 25">
+        </div>
+        <div class="gallery-item" data-order="24">
+            <img src="images/24.jpg" alt="Photo 24">
+        </div>
+        <div class="gallery-item" data-order="23">
+            <img src="images/23.jpg" alt="Photo 23">
+        </div>
+        <div class="gallery-item" data-order="22">
+            <img src="images/22.jpg" alt="Photo 22">
+        </div>
+        <div class="gallery-item" data-order="21">
+            <img src="images/21.jpg" alt="Photo 21">
+        </div>
+        <div class="gallery-item" data-order="20">
+            <img src="images/20.jpg" alt="Photo 20">
+        </div>
+        <div class="gallery-item" data-order="19">
+            <img src="images/19.jpg" alt="Photo 19">
+        </div>
+        <div class="gallery-item" data-order="18">
+            <img src="images/18.jpg" alt="Photo 18">
+        </div>
+        <div class="gallery-item" data-order="17">
+            <img src="images/17.jpg" alt="Photo 17">
+        </div>
+        <div class="gallery-item" data-order="16">
+            <img src="images/16.jpg" alt="Photo 16">
+        </div>
+        <div class="gallery-item" data-order="15">
+            <img src="images/15.jpg" alt="Photo 15">
+        </div>
+        <div class="gallery-item" data-order="14">
+            <img src="images/14.jpg" alt="Photo 14">
+        </div>
+        <div class="gallery-item" data-order="13">
+            <img src="images/13.jpg" alt="Photo 13">
+        </div>
+        <div class="gallery-item" data-order="12">
+            <img src="images/12.jpg" alt="Photo 12">
+        </div>
+        <div class="gallery-item" data-order="11">
+            <img src="images/11.jpg" alt="Photo 11">
+        </div>
+        <div class="gallery-item" data-order="10">
+            <img src="images/10.jpg" alt="Photo 10">
+        </div>
+        <div class="gallery-item" data-order="9">
+            <img src="images/9.jpg" alt="Photo 9">
+        </div>
+        <div class="gallery-item" data-order="8">
+            <img src="images/8.jpg" alt="Photo 8">
+        </div>
+        <div class="gallery-item" data-order="7">
+            <img src="images/7.jpg" alt="Photo 7">
+        </div>
+        <div class="gallery-item" data-order="6">
+            <img src="images/6.jpg" alt="Photo 6">
+        </div>
+        <div class="gallery-item" data-order="5">
+            <img src="images/5.jpg" alt="Photo 5">
+        </div>
+        <div class="gallery-item" data-order="4">
+            <img src="images/4.jpg" alt="Photo 4">
+        </div>
+        <div class="gallery-item" data-order="3">
+            <img src="images/3.jpg" alt="Photo 3">
+        </div>
+        <div class="gallery-item" data-order="2">
+            <img src="images/2.jpg" alt="Photo 2">
+        </div>
+        <div class="gallery-item" data-order="1">
+            <img src="images/1.jpg" alt="Photo 1">
+        </div>
 
-       <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-back" style="background-color: AntiqueWhite;"> 16 </div> 
-         <div class="flip-card-front" style="background-color: AntiqueWhite;"> <h1 style="font-size:250%;"> 🍜</h1> </div>
-               
-             </div>
-      </div> 
-        
-      <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">17</div></div>
-          
-    </div>
-    
-    <div class="row">
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: Tomato;"> 18 </div> 
-         <div class="flip-card-back" style="background-color: Tomato;"> <img src="https://www.vippng.com/png/full/24-242700_red-pepper-png-clipart-bell-pepper-clipart-png.png" width="50%"> </div>
-               
-             </div>
-      </div> 
+    </main>
 
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: SeaGreen;"> 19 </div> 
-         <div class="flip-card-back" style="background-color: SeaGreen;"> <img src="https://assets.change.org/photos/1/fx/kc/huFxkcxtHozOZub-800x450-noPad.jpg?1562580099" width="50%"> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: #FFB914;"> 20 </div> 
-         <div class="flip-card-back" style="background-color: #FFB914;"> <h1 style="font-size:250%;"> 🎃 </h1> </div>
-               
-             </div>
-      </div> 
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: MediumPurple;"> 21 </div> 
-         <div class="flip-card-back" style="background-color: MediumPurple;"> <img src="https://www.pinclipart.com/picdir/big/63-630916_black-olives-png-clipart.png" width="50%"> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: #b9a38e;"> 22 </div> 
-         <div class="flip-card-back" style="background-color: #b9a38e;"> <h1 style="font-size:250%;"> 🍞 </h1> </div>
-               
-             </div>
-      </div> 
+    <script>
+        const galleryContainer = document.getElementById('gallery-container');
+        const sortIcon = document.getElementById('sort-icon');
+        let isDescending = true; // Initial sort order: 138 down to 1
 
-       <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: AntiqueWhite;"> 23 </div> 
-         <div class="flip-card-back" style="background-color: AntiqueWhite;"> <h1 style="font-size:250%;"> 🥥</h1> </div>
-               
-             </div>
-      </div> 
-        
-      <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">24</div></div>
- 
-</div>
-    
-    <div class="row">
-          
-           <div class="box">
-            <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: Tomato;"> 25 </div> 
-         <div class="flip-card-back" style="background-color: Tomato;"> <h1 style="font-size:250%;"> 🍎</h1> </div>
-               
-             </div>
-      </div> 
-                  
+        /**
+         * Sorts the gallery items based on their 'data-order' attribute
+         * and re-appends them to the gallery container.
+         */
+        function sortImages() {
+            // Get all gallery items as an array
+            const items = Array.from(galleryContainer.children);
 
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: SeaGreen;"> 26 </div> 
-         <div class="flip-card-back" style="background-color: SeaGreen;"> <h1 style="font-size:250%;"> 🥑 </h1> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: #FFB914;"> 27 </div> 
-         <div class="flip-card-back" style="background-color: #FFB914;"> <h1 style="font-size:250%;"> 🌽 </h1> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: MediumPurple;">28 </div> 
-         <div class="flip-card-back" style="background-color: MediumPurple;"> <img src="https://www.emoji.com/wp-content/uploads/filebase/icons/emoji-icon-glossy-04-00-food-drink-food-fruit-fig-72dpi-forPersonalUseOnly.png" width="50%"></img> </div>
-               
-             </div>
-      </div> 
-      
-        <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: #b9a38e;"> 29 </div> 
-         <div class="flip-card-back" style="background-color: #b9a38e;"> <h1 style="font-size:250%;"> 🍫 </h1> </div>
-               
-             </div>
-      </div> 
-       <div class="box">
-         <div class="inner">
-         
-         <div class="flip-card-front" style="background-color: AntiqueWhite;"> 30 </div> 
-         <div class="flip-card-back" style="background-color: AntiqueWhite;"><h1 style="font-size:250%;">🥛</h1></div>
-               
-             </div>
-      </div> 
-        
-      <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">31</div></div>
-    </div>
+            // Sort the items
+            items.sort((a, b) => {
+                const orderA = parseInt(a.dataset.order);
+                const orderB = parseInt(b.dataset.order);
 
-</div>
+                if (isDescending) {
+                    return orderB - orderA; // Sort from highest to lowest (e.g., 138, 137, ...)
+                } else {
+                    return orderA - orderB; // Sort from lowest to highest (e.g., 1, 2, ...)
+                }
+            });
 
-<h1 style="font-size:250%;">June</h1>
+            // Clear the current content of the gallery and append sorted items
+            // This re-renders the gallery in the new order
+            galleryContainer.innerHTML = '';
+            items.forEach(item => galleryContainer.appendChild(item));
+        }
 
-<div class="grid">     
-      <div class="row">
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Mon</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Tue</div></div>
-        <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Wed</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Thu</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Fri</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Sat</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Sun</div></div>
-    </div>
-<div class="grid">     
-<div class="row">
-        <div class="box"><div class="inner" style="background-color: tomato;">1</div></div>
-        <div class="box"><div class="inner" style="background-color: SeaGreen;">2</div></div>
-        <div class="box"><div class="inner" style="background-color: #FFB914;">3</div></div>
-        <div class="box"><div class="inner" style="background-color: MediumPurple;">4</div></div>
-        <div class="box"><div class="inner" style="background-color: BurlyWood;">5</div></div>
-        <div class="box"><div class="inner" style="background-color: AntiqueWhite;">6</div></div>
-         <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">7</div></div>
+        // Add event listener to the sort icon
+        sortIcon.addEventListener('click', () => {
+            isDescending = !isDescending; // Toggle the sort order flag
 
-    </div>
-    <div class="row">
-        <div class="box"><div class="inner" style="background-color: tomato;">8</div></div>
-        <div class="box"><div class="inner" style="background-color: SeaGreen;">9</div></div>
-        <div class="box"><div class="inner" style="background-color: #FFB914;">10</div></div>
-        <div class="box"><div class="inner" style="background-color: MediumPurple;">11</div></div>
-        <div class="box"><div class="inner" style="background-color: BurlyWood;">12</div></div>
-        <div class="box"><div class="inner" style="background-color: AntiqueWhite;">13</div></div>
-         <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">14</div></div>
+            // Update the icon to reflect the new sort order
+            const iconElement = sortIcon.querySelector('i');
+            if (isDescending) {
+                iconElement.classList.remove('fa-sort-up');
+                iconElement.classList.add('fa-sort-down');
+            } else {
+                iconElement.classList.remove('fa-sort-down');
+                iconElement.classList.add('fa-sort-up');
+            }
 
-    </div>
-    <div class="row">
-        <div class="box"><div class="inner" style="background-color: tomato;">15</div></div>
-        <div class="box"><div class="inner" style="background-color: SeaGreen;">16</div></div>
-        <div class="box"><div class="inner" style="background-color: #FFB914;">17</div></div>
-        <div class="box"><div class="inner" style="background-color: MediumPurple;">18</div></div>
-        <div class="box"><div class="inner" style="background-color: BurlyWood;">19</div></div>
-        <div class="box"><div class="inner" style="background-color: AntiqueWhite;">20</div></div>
-         <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">21</div></div>
-
-    </div>
-    <div class="row">
-        <div class="box"><div class="inner" style="background-color: tomato;">22</div></div>
-        <div class="box"><div class="inner" style="background-color: SeaGreen;">23</div></div>
-        <div class="box"><div class="inner" style="background-color: #FFB914;">24</div></div>
-        <div class="box"><div class="inner" style="background-color: MediumPurple;">25</div></div>
-        <div class="box"><div class="inner" style="background-color: BurlyWood;">26</div></div>
-        <div class="box"><div class="inner" style="background-color: AntiqueWhite;">27</div></div>
-         <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">28</div></div>
-
-    </div>
-    <div class="row">
-        <div class="box"><div class="inner" style="background-color: tomato;">29</div></div>
-        <div class="box"><div class="inner" style="background-color: SeaGreen;">30</div></div>
-        <div class="box"><div class="inner" style="background-color: white;">0</div></div>
-        <div class="box"><div class="inner" style="background-color: white;">0</div></div>
-        <div class="box"><div class="inner" style="background-color: white;">0</div></div>
-        <div class="box"><div class="inner" style="background-color: white;">0</div></div>
-        <div class="box"><div class="inner" style="background-color: white;">0</div></div>
-
-    </div>
-</div>
-
-<h1 style="font-size:250%;">July</h1>
-
-<div class="grid">     
-      <div class="row">
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Mon</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Tue</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Wed</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Thu</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Fri</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Sat</div></div>
-         <div class="noflip"><div class="nfinner" style="background-color: white; color:black; align-items: flex-end;">Sun</div></div>
-    </div><div class="grid">     
-<div class="row">
-        <div class="box"><div class="inner" style="background-color: white;">0</div></div>
-        <div class="box"><div class="inner" style="background-color: white;">0</div></div>
-        <div class="box"><div class="inner" style="background-color: #FFB914;">1</div></div>
-        <div class="box"><div class="inner" style="background-color: MediumPurple;">2</div></div>
-        <div class="box"><div class="inner" style="background-color: BurlyWood;">3</div></div>
-        <div class="box"><div class="inner" style="background-color: AntiqueWhite;">4</div></div>
-         <div class="noflip"><div class="nfinner" style="background: repeating-linear-gradient(SeaGreen, SeaGreen 20px, #FFB914 20px, #FFB914 40px, MediumPurple 40px, MediumPurple 60px, #b9a38e 60px, #b9a38e 80px, AntiqueWhite 80px, AntiqueWhite 100px, tomato 100px, tomato 120px);">5</div></div>
-
-    </div>
-    
-
-</div>
+            sortImages(); // Call the sorting function
+        });
+    </script>
+</body>
+</html>

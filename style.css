@@ -11,21 +11,23 @@ body {
 /* Sort Icon Styling */
 .sort-icon {
     position: fixed; /* Fixed position relative to the viewport */
-    top: 20px; /* 20px from the top */
-    right: 20px; /* 20px from the right */
-    font-size: 28px; /* Size of the icon */
+    top: 25px; /* Adjusted slightly for better visual balance after removing padding */
+    right: 25px; /* Adjusted slightly for better visual balance after removing padding */
+    font-size: 20px; /* Made smaller for subtlety */
     color: #2c3e50; /* Dark blue-grey color */
     cursor: pointer; /* Indicates it's clickable */
     z-index: 1000; /* Ensures it stays on top of other content */
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
-    padding: 10px;
-    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    /* Removed: background-color: rgba(255, 255, 255, 0.8); */
+    /* Removed: padding: 10px; */
+    /* Removed: border-radius: 50%; */
+    /* Removed: box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out; /* Removed background-color from transition */
 }
 
 .sort-icon:hover {
     transform: scale(1.1); /* Slightly enlarge on hover */
     color: #3498db; /* Change color on hover */
-    background-color: rgba(255, 255, 255, 1);
+    /* Removed: background-color: rgba(255, 255, 255, 1); */
 }
 
 /* Gallery Container - CSS Grid for 3 Columns (Strictly 3, always) */
@@ -44,9 +46,9 @@ body {
     background-color: white;
     overflow: hidden; /* Ensures image corners are also rounded within the item */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
-    display: flex; /* Use flexbox to center image if it doesn't fill the item */
-    justify-content: center; /* Center image horizontally */
-    align-items: center; /* Center image vertically */
+    display: block; /* Changed to block for padding trick */
+    position: relative; /* Needed for absolute positioning of the image */
+    padding-bottom: 100%; /* This creates the square aspect ratio */
 }
 
 .gallery-item:hover {
@@ -54,9 +56,12 @@ body {
 }
 
 .gallery-item img {
+    position: absolute; /* Position the image absolutely within its parent */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 250px; /* Fixed height for all images to create a consistent grid */
-    object-fit: cover; /* Ensures images cover the area without distortion */
+    height: 100%; /* Image now fills the square container */
+    object-fit: cover; /* Ensures images cover the area without distortion, cropping as needed */
     display: block; /* Removes extra space below image */
 }
 
@@ -66,14 +71,11 @@ body {
         gap: 1.2rem;
         padding: 1.2rem;
     }
-    .gallery-item img {
-        height: 220px; /* Slightly reduce image height */
-    }
     .sort-icon {
-        font-size: 24px; /* Smaller icon on tablets */
-        top: 15px;
-        right: 15px;
-        padding: 8px;
+        font-size: 18px; /* Smaller icon on tablets */
+        top: 20px;
+        right: 20px;
+        /* Removed padding */
     }
 }
 
@@ -82,14 +84,11 @@ body {
         gap: 1rem;
         padding: 1rem;
     }
-    .gallery-item img {
-        height: 200px; /* Further reduce image height */
-    }
     .sort-icon {
-        font-size: 22px; /* Even smaller icon on mobile */
-        top: 10px;
-        right: 10px;
-        padding: 7px;
+        font-size: 16px; /* Even smaller icon on mobile */
+        top: 15px;
+        right: 15px;
+        /* Removed padding */
     }
 }
 
@@ -97,16 +96,10 @@ body {
     .gallery-container {
         padding: 0.5rem;
     }
-    .gallery-item {
-        /* No change to width: 95% or margin: 0.5rem auto; as it's still 3 columns */
-    }
-    .gallery-item img {
-        height: 180px; /* Further reduce image height for mobile */
-    }
     .sort-icon {
-        font-size: 20px; /* Smallest icon on tiny screens */
-        top: 8px;
-        right: 8px;
-        padding: 6px;
+        font-size: 14px; /* Smallest icon on tiny screens */
+        top: 10px;
+        right: 10px;
+        /* Removed padding */
     }
 }

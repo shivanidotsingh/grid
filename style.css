@@ -61,22 +61,24 @@ body {
 }
 
 /* Tooltip Caption Styling */
-.gallery-item::after {
+/* Only apply if data-caption exists and is not empty */
+.gallery-item[data-caption]:not([data-caption=""])::after {
     content: attr(data-caption); /* Get content from data-caption attribute */
     position: absolute;
-    bottom: 10px; /* Position above the bottom edge of the image */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for perfect centering */
-    background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background */
+    /* Position slightly below the center of the image, closer to cursor */
+    bottom: 50%; /* Start from the middle */
+    left: 50%; /* Start from the middle */
+    transform: translate(-50%, calc(50% + 10px)); /* Move down by half its height + 10px for spacing */
+    background-color: rgba(0, 0, 0, 0.9); /* Slightly less transparent black background */
     color: white;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 0.85em; /* Small font size */
+    padding: 4px 8px; /* Smaller padding */
+    border-radius: 3px; /* Slightly smaller border-radius */
+    font-size: 0.75em; /* Smaller font size */
     white-space: nowrap; /* Keep text on a single line */
     z-index: 10; /* Ensure it's above the image */
     opacity: 0; /* Initially hidden */
     visibility: hidden; /* Also hidden for accessibility */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease; /* Faster, smoother transition */
     pointer-events: none; /* Allows clicks/hovers on elements behind the tooltip */
 }
 
@@ -84,6 +86,7 @@ body {
 .gallery-item:hover::after {
     opacity: 1;
     visibility: visible;
+    transform: translate(-50%, 50%); /* Move to final position (half its height up from bottom:50%) */
 }
 
 
@@ -98,7 +101,7 @@ body {
         top: 20px;
         right: 20px;
     }
-    .gallery-item::after {
+    .gallery-item[data-caption]:not([data-caption=""])::after {
         font-size: 0.8em; /* Slightly smaller tooltip text */
         padding: 5px 10px;
     }
@@ -114,7 +117,7 @@ body {
         top: 15px;
         right: 15px;
     }
-    .gallery-item::after {
+    .gallery-item[data-caption]:not([data-caption=""])::after {
         font-size: 0.75em; /* Even smaller tooltip text */
         padding: 4px 8px;
     }
@@ -129,9 +132,13 @@ body {
         top: 10px;
         right: 10px;
     }
-    .gallery-item::after {
+    .gallery-item[data-caption]:not([data-caption=""])::after {
         font-size: 0.7em; /* Smallest tooltip text */
         padding: 3px 6px;
-        bottom: 5px; /* Adjust position for very small screens */
+        bottom: 50%; /* Keep position relative to center */
+        transform: translate(-50%, calc(50% + 5px)); /* Adjust spacing */
+    }
+    .gallery-item:hover::after {
+        transform: translate(-50%, 50%); /* Final position on hover */
     }
 }

@@ -39,7 +39,7 @@ body {
 .gallery-item {
     background-color: white;
     overflow: hidden;
-    transition: transform 0.3s ease; /* Removed box-shadow from transition as it's not present */
+    transition: transform 0.3s ease;
     display: block;
     position: relative; /* Needed for absolute positioning of the image */
     padding-bottom: 100%; /* This creates the square aspect ratio */
@@ -59,22 +59,24 @@ body {
     display: block;
 }
 
-/* New Caption Display Styling (Bottom-Left) */
+/* New Caption Display Styling (Bottom-Right, Tiny, Desktop Only) */
 .caption-display {
     position: fixed; /* Fixed to the viewport */
-    bottom: 20px; /* 20px from the bottom */
-    left: 20px; /* 20px from the left */
+    bottom: 10px; /* Closer to the bottom edge */
+    right: 10px; /* Closer to the right edge */
     background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background */
     color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 0.9em; /* Readable font size */
+    padding: 0px; /* No padding */
+    border-radius: 2px; /* Very slight border-radius */
+    font-size: 0.65em; /* EVEN SMALLER font size */
     z-index: 1000; /* Ensure it's above other content */
     display: none; /* Hidden by default, shown by JavaScript */
-    max-width: 300px; /* Limit width to prevent it from being too wide */
+    max-width: 200px; /* Limit width to prevent it from being too wide */
     white-space: nowrap; /* Keep text on one line if possible */
     overflow: hidden; /* Hide overflow if text is too long */
     text-overflow: ellipsis; /* Add ellipsis if text is cut off */
+    line-height: 1; /* Tighter line height for tiny text */
+    height: 1em; /* Ensure height matches font-size for no padding */
 }
 
 /* Responsive Adjustments */
@@ -88,12 +90,12 @@ body {
         top: 20px;
         right: 20px;
     }
+    /* Caption display on smaller desktop/larger tablet screens */
     .caption-display {
-        font-size: 0.85em;
-        padding: 7px 10px;
-        bottom: 15px;
-        left: 15px;
-        max-width: 250px;
+        font-size: 0.6em; /* Adjust font size slightly */
+        bottom: 8px;
+        right: 8px;
+        max-width: 180px;
     }
 }
 
@@ -107,12 +109,9 @@ body {
         top: 15px;
         right: 15px;
     }
+    /* Hide caption display completely on mobile screens */
     .caption-display {
-        font-size: 0.8em;
-        padding: 6px 8px;
-        bottom: 10px;
-        left: 10px;
-        max-width: 200px;
+        display: none !important; /* Force hide on mobile */
     }
 }
 
@@ -125,11 +124,8 @@ body {
         top: 10px;
         right: 10px;
     }
+    /* Ensure caption display remains hidden on very small screens */
     .caption-display {
-        font-size: 0.75em;
-        padding: 5px 7px;
-        bottom: 8px;
-        left: 8px;
-        max-width: 150px; /* Even smaller max-width for tiny screens */
+        display: none !important; /* Force hide on mobile */
     }
 }

@@ -11,24 +11,23 @@ body {
 /* Sort Icon Styling */
 .sort-icon {
     position: fixed; /* Fixed position relative to the viewport */
-    top: 25px; /* Adjusted slightly for better visual balance after removing padding */
-    right: 25px; /* Adjusted slightly for better visual balance after removing padding */
-    font-size: 20px; /* Made smaller for subtlety */
-    color: #2c3e50; /* Dark blue-grey color */
-    cursor: pointer; /* Indicates it's clickable */
-    z-index: 1000; /* Ensures it stays on top of other content */
+    top: 25px;
+    right: 25px;
+    font-size: 20px;
+    color: #2c3e50;
+    cursor: pointer;
+    z-index: 1000;
     transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .sort-icon:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    color: #3498db; /* Change color on hover */
+    transform: scale(1.1);
+    color: #3498db;
 }
 
 /* Gallery Container - CSS Grid for 3 Columns (Strictly 3, always) */
 .gallery-container {
     display: grid;
-    /* FORCED 3-COLUMN LAYOUT on all screens */
     grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal columns, always */
     gap: 1.5rem; /* Space between grid items */
     padding: 1.5rem;
@@ -40,9 +39,9 @@ body {
 .gallery-item {
     background-color: white;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease; /* Removed box-shadow from transition as it's not present */
     display: block;
-    position: relative; /* Needed for absolute positioning of the image and tooltip */
+    position: relative; /* Needed for absolute positioning of the image */
     padding-bottom: 100%; /* This creates the square aspect ratio */
 }
 
@@ -60,50 +59,41 @@ body {
     display: block;
 }
 
-/* Tooltip Caption Styling */
-/* Only apply if data-caption exists and is not empty */
-.gallery-item[data-caption]:not([data-caption=""])::after {
-    content: attr(data-caption); /* Get content from data-caption attribute */
-    position: absolute;
-    /* Position slightly below the center of the image, closer to cursor */
-    bottom: 50%; /* Start from the middle */
-    left: 50%; /* Start from the middle */
-    transform: translate(-50%, calc(50% + 10px)); /* Move down by half its height + 10px for spacing */
-    background-color: rgba(0, 0, 0, 0.9); /* Slightly less transparent black background */
+/* New Caption Display Styling (Bottom-Left) */
+.caption-display {
+    position: fixed; /* Fixed to the viewport */
+    bottom: 20px; /* 20px from the bottom */
+    left: 20px; /* 20px from the left */
+    background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background */
     color: white;
-    padding: 4px 8px; /* Smaller padding */
-    border-radius: 3px; /* Slightly smaller border-radius */
-    font-size: 0.75em; /* Smaller font size */
-    white-space: nowrap; /* Keep text on a single line */
-    z-index: 10; /* Ensure it's above the image */
-    opacity: 0; /* Initially hidden */
-    visibility: hidden; /* Also hidden for accessibility */
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease; /* Faster, smoother transition */
-    pointer-events: none; /* Allows clicks/hovers on elements behind the tooltip */
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9em; /* Readable font size */
+    z-index: 1000; /* Ensure it's above other content */
+    display: none; /* Hidden by default, shown by JavaScript */
+    max-width: 300px; /* Limit width to prevent it from being too wide */
+    white-space: nowrap; /* Keep text on one line if possible */
+    overflow: hidden; /* Hide overflow if text is too long */
+    text-overflow: ellipsis; /* Add ellipsis if text is cut off */
 }
 
-/* Show tooltip on hover */
-.gallery-item:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, 50%); /* Move to final position (half its height up from bottom:50%) */
-}
-
-
-/* Responsive Adjustments (only for padding/gap/icon size, NOT column count) */
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
     .gallery-container {
         gap: 1.2rem;
         padding: 1.2rem;
     }
     .sort-icon {
-        font-size: 18px; /* Smaller icon on tablets */
+        font-size: 18px;
         top: 20px;
         right: 20px;
     }
-    .gallery-item[data-caption]:not([data-caption=""])::after {
-        font-size: 0.8em; /* Slightly smaller tooltip text */
-        padding: 5px 10px;
+    .caption-display {
+        font-size: 0.85em;
+        padding: 7px 10px;
+        bottom: 15px;
+        left: 15px;
+        max-width: 250px;
     }
 }
 
@@ -113,13 +103,16 @@ body {
         padding: 1rem;
     }
     .sort-icon {
-        font-size: 16px; /* Even smaller icon on mobile */
+        font-size: 16px;
         top: 15px;
         right: 15px;
     }
-    .gallery-item[data-caption]:not([data-caption=""])::after {
-        font-size: 0.75em; /* Even smaller tooltip text */
-        padding: 4px 8px;
+    .caption-display {
+        font-size: 0.8em;
+        padding: 6px 8px;
+        bottom: 10px;
+        left: 10px;
+        max-width: 200px;
     }
 }
 
@@ -128,17 +121,15 @@ body {
         padding: 0.5rem;
     }
     .sort-icon {
-        font-size: 14px; /* Smallest icon on tiny screens */
+        font-size: 14px;
         top: 10px;
         right: 10px;
     }
-    .gallery-item[data-caption]:not([data-caption=""])::after {
-        font-size: 0.7em; /* Smallest tooltip text */
-        padding: 3px 6px;
-        bottom: 50%; /* Keep position relative to center */
-        transform: translate(-50%, calc(50% + 5px)); /* Adjust spacing */
-    }
-    .gallery-item:hover::after {
-        transform: translate(-50%, 50%); /* Final position on hover */
+    .caption-display {
+        font-size: 0.75em;
+        padding: 5px 7px;
+        bottom: 8px;
+        left: 8px;
+        max-width: 150px; /* Even smaller max-width for tiny screens */
     }
 }

@@ -59,24 +59,25 @@ body {
     display: block;
 }
 
-/* New Caption Display Styling (Bottom-Right, Tiny, Desktop Only) */
+/* New Caption Display Styling (Bottom-Left, Tiny, Desktop Only) */
 .caption-display {
     position: fixed; /* Fixed to the viewport */
     bottom: 10px; /* Closer to the bottom edge */
-    right: 10px; /* Closer to the right edge */
+    left: 10px; /* Stuck to the left edge */
+    right: auto; /* Ensure it doesn't try to stick to the right */
     background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background */
     color: white;
-    padding: 0px; /* No padding */
+    padding: 4px 8px; /* Padding for the text inside the box */
     border-radius: 2px; /* Very slight border-radius */
-    font-size: 0.65em; /* EVEN SMALLER font size */
+    font-size: 0.65em; /* Text size */
     z-index: 1000; /* Ensure it's above other content */
     display: none; /* Hidden by default, shown by JavaScript */
-    max-width: 200px; /* Limit width to prevent it from being too wide */
-    white-space: nowrap; /* Keep text on one line if possible */
-    overflow: hidden; /* Hide overflow if text is too long */
-    text-overflow: ellipsis; /* Add ellipsis if text is cut off */
-    line-height: 1; /* Tighter line height for tiny text */
-    height: 1em; /* Ensure height matches font-size for no padding */
+    max-width: 250px; /* Increased max-width to allow more text before wrapping */
+    white-space: normal; /* ALLOW TEXT TO WRAP */
+    overflow: visible; /* Ensure content is not hidden */
+    text-overflow: clip; /* Ensure no ellipsis */
+    line-height: 1.2; /* Slightly more natural line height with padding */
+    height: auto; /* Allow height to adjust with padding and content */
 }
 
 /* Responsive Adjustments */
@@ -94,8 +95,9 @@ body {
     .caption-display {
         font-size: 0.6em; /* Adjust font size slightly */
         bottom: 8px;
-        right: 8px;
-        max-width: 180px;
+        left: 8px; /* Adjusted for smaller screens */
+        max-width: 200px; /* Adjusted max-width */
+        padding: 3px 6px; /* Adjusted padding */
     }
 }
 

@@ -1,4 +1,3 @@
-/* Basic Reset & Body Styling */
 body {
     font-family: 'Inter', sans-serif; /* Using Inter font */
     margin: 0;
@@ -8,7 +7,6 @@ body {
     line-height: 1.6;
 }
 
-/* Sort Icon Styling */
 .sort-icon {
     position: fixed; /* Fixed position relative to the viewport */
     top: 25px;
@@ -62,13 +60,13 @@ body {
 /* New Caption Display Styling (Bottom-Left, Tiny, Desktop Only) */
 .caption-display {
     position: fixed; /* Fixed to the viewport */
-    bottom: 10px; /* Closer to the bottom edge */
-    left: 10px; /* Stuck to the left edge */
+    bottom: 0px; /* STUCK TO THE BOTTOM EDGE */
+    left: 0px; /* STUCK TO THE LEFT EDGE */
     right: auto; /* Ensure it doesn't try to stick to the right */
     background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background */
     color: white;
     padding: 4px 8px; /* Padding for the text inside the box */
-    border-radius: 2px; /* Very slight border-radius */
+    border-radius: 0px; /* Removed border-radius to be completely rectangular */
     font-size: 0.65em; /* Text size */
     z-index: 1000; /* Ensure it's above other content */
     display: none; /* Hidden by default, shown by JavaScript */
@@ -91,13 +89,9 @@ body {
         top: 20px;
         right: 20px;
     }
-    /* Caption display on smaller desktop/larger tablet screens */
+    /* Hide caption display completely on screens up to 1024px (including tablets) */
     .caption-display {
-        font-size: 0.6em; /* Adjust font size slightly */
-        bottom: 8px;
-        left: 8px; /* Adjusted for smaller screens */
-        max-width: 200px; /* Adjusted max-width */
-        padding: 3px 6px; /* Adjusted padding */
+        display: none !important; /* Force hide on tablets and smaller */
     }
 }
 
@@ -111,10 +105,7 @@ body {
         top: 15px;
         right: 15px;
     }
-    /* Hide caption display completely on mobile screens */
-    .caption-display {
-        display: none !important; /* Force hide on mobile */
-    }
+    /* This rule is now redundant for caption-display due to the 1024px rule, but kept for other elements */
 }
 
 @media (max-width: 480px) {
@@ -126,8 +117,5 @@ body {
         top: 10px;
         right: 10px;
     }
-    /* Ensure caption display remains hidden on very small screens */
-    .caption-display {
-        display: none !important; /* Force hide on mobile */
-    }
+    /* This rule is now redundant for caption-display due to the 1024px rule, but kept for other elements */
 }

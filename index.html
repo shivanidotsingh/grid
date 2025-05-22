@@ -6,12 +6,8 @@
     <title> ⊹ lights ⊹ </title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
 <body>
-    <div id="sort-icon" class="sort-icon">
-        <i class="fas fa-sort-down"></i>
-    </div>
 
     <main class="gallery-container" id="gallery-container">
 
@@ -466,52 +462,8 @@
 
     <script>
         const galleryContainer = document.getElementById('gallery-container');
-        const sortIcon = document.getElementById('sort-icon');
         const captionDisplay = document.getElementById('caption-display'); // Get the new caption display div
-        let isDescending = true; // Initial sort order: 138 down to 1
 
-        /**
-         * Sorts the gallery items based on their 'data-order' attribute
-         * and re-appends them to the gallery container.
-         */
-        function sortImages() {
-            // Get all gallery items as an array
-            const items = Array.from(galleryContainer.children);
-
-            // Sort the items
-            items.sort((a, b) => {
-                const orderA = parseInt(a.dataset.order);
-                const orderB = parseInt(b.dataset.order);
-
-                if (isDescending) {
-                    return orderB - orderA; // Sort from highest to lowest (e.g., 138, 137, ...)
-                } else {
-                    return orderA - orderB; // Sort from lowest to highest (e.g., 1, 2, ...)
-                }
-            });
-
-            // Clear the current content of the gallery and append sorted items
-            // This re-renders the gallery in the new order
-            galleryContainer.innerHTML = '';
-            items.forEach(item => galleryContainer.appendChild(item));
-        }
-
-        // Add event listener to the sort icon
-        sortIcon.addEventListener('click', () => {
-            isDescending = !isDescending; // Toggle the sort order flag
-
-            // Update the icon to reflect the new sort order
-            const iconElement = sortIcon.querySelector('i');
-            if (isDescending) {
-                iconElement.classList.remove('fa-sort-up');
-                iconElement.classList.add('fa-sort-down');
-            } else {
-                iconElement.classList.remove('fa-sort-down');
-                iconElement.classList.add('fa-sort-up');
-            }
-
-            sortImages(); // Call the sorting function
-        });
 
         // --- New JavaScript for Caption Display ---
         galleryContainer.addEventListener('mouseover', (event) => {

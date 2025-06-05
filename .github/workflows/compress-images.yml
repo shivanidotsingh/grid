@@ -3,7 +3,7 @@ name: Compress Images
 on:
   push:
     branches:
-      - main   # or 'master' if that's your default branch
+      - master
 
 jobs:
   compress:

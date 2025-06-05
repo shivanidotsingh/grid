@@ -1,12 +1,12 @@
 name: Compress Images
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
     paths:
       - 'images/*.jpg'
       - 'images/*.jpeg'
-      - 'images/*.png'
-      - 'images/*.webp'
 
 jobs:
   compress:
@@ -24,3 +24,10 @@ jobs:
           jpegQuality: "80"
           commit: true
           commitMessage: "ImageOp: Compress images for web optimization"
+
+      - name: Verify no pending changes (Optional)
+        run: |
+          git diff --exit-code || {
+            echo "Warning: Image Action made changes but 'commit: true' might not have worked or there were other changes."
+            echo "Please check your repository history."
+          }

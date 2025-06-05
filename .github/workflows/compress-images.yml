@@ -1,14 +1,12 @@
 name: Compress Images
 
 on:
-  # This workflow will run on every push to the master branch
-  # This assumes 'master' is your primary branch.
-  push:
-    branches:
-      - main
+  pull_request:
     paths:
-      - 'images/**.jpg' # Target only JPGs in the 'images' folder
-      - 'images/**.jpeg' # Just in case you have .jpeg extension
+      - 'images/*.jpg'
+      - 'images/*.jpeg'
+      - 'images/*.png'
+      - 'images/*.webp'
 
 jobs:
   compress:
@@ -22,18 +20,7 @@ jobs:
       - name: Compress Images
         uses: calibreapp/image-actions@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          jpeg_quality: "80"
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          jpegQuality: "80"
           commit: true
-          commit_message: "ImageOp: Compress images for web optimization"
-          branch: ${{ github.ref_name }}
-          paths: |
-            images/**/*.jpg
-            images/**/*.jpeg
-
-      - name: Verify no pending changes (Optional)
-        run: |
-          git diff --exit-code || {
-            echo "Warning: Image Action made changes but 'commit: true' might not have worked or there were other changes."
-            echo "Please check your repository history."
-          }
+          commitMessage: "ImageOp: Compress images for web optimization"

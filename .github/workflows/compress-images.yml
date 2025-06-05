@@ -5,7 +5,7 @@ on:
   # This assumes 'master' is your primary branch.
   push:
     branches:
-      - master
+      - main
     paths:
       - 'images/**.jpg' # Target only JPGs in the 'images' folder
       - 'images/**.jpeg' # Just in case you have .jpeg extension

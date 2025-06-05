@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'images/*.jpg'
-      - 'images/*.jpeg'
-      - 'images/*.png'
-      - 'images/*.webp'
 
 jobs:
   compress:
@@ -18,18 +13,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compress Images
-        id: calibre
-        uses: calibreapp/image-actions@main
+        uses: clydedz/compress-images@v1
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          jpegQuality: "80"
-          compressOnly: true
+          input-directory: images
+          output-directory: images
+          jpg-compression-quality: 60    # Adjust quality as needed (0-100)
+          png-compression-quality: 0.5   # Adjust for PNGs (0-1)
+          gif-compression-quality: 2     # 1-3
 
-      - name: Create Pull Request for Compressed Images
-        if: steps.calibre.outputs.markdown != ''
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Compressed Images
-          commit-message: Compressed Images
-          body: ${{ steps.calibre.outputs.markdown }}
-          branch-suffix: timestamp
+      - name: Commit compressed images
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add images
+          git commit -m "Compress all images" || echo "No changes to commit"
+          git push

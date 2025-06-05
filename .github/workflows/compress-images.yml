@@ -16,10 +16,14 @@ jobs:
         uses: clydedz/compress-images@v1
         with:
           input-directory: images
-          output-directory: images
-          jpg-compression-quality: 60    # Adjust quality as needed (0-100)
+          output-directory: dist
+          jpg-compression-quality: 60    # Adjust quality (0-100) as needed
           png-compression-quality: 0.5   # Adjust for PNGs (0-1)
           gif-compression-quality: 2     # 1-3
+
+      - name: Replace originals with compressed images
+        run: |
+          cp -rf dist/* images/
 
       - name: Commit compressed images
         run: |
